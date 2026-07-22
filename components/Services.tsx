@@ -1,21 +1,6 @@
 import Image from "next/image";
-
-const CATALOG_PDF = "/catalogo/catalogo-plomered.pdf";
-
-const categories = [
-  { slug: "tuberia", title: "Tubería", page: 7 },
-  { slug: "conexiones", title: "Conexiones", page: 15 },
-  { slug: "valvulas", title: "Válvulas", page: 94 },
-  { slug: "almacenamiento-agua", title: "Almacenamiento de agua", page: 105 },
-  { slug: "bombas-hidroneumatico", title: "Bombas y equipo hidroneumático", page: 111 },
-  { slug: "pegamentos-soldaduras", title: "Pegamentos y soldaduras", page: 58 },
-  { slug: "soporteria-fijacion", title: "Soportería y fijación", page: 114 },
-  { slug: "residencial", title: "Residencial", page: 67 },
-  { slug: "urbanizacion", title: "Urbanización", page: 82 },
-  { slug: "electrico", title: "Eléctrico", page: 124 },
-  { slug: "temporada", title: "Temporada", page: 117 },
-  { slug: "otros-plomeria", title: "Otros plomería", page: 128 },
-];
+import Link from "next/link";
+import { CATALOG_CATEGORIES, CATALOG_PDF } from "@/lib/catalogo";
 
 export default function Services() {
   return (
@@ -40,12 +25,10 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((category) => (
-            <a
+          {CATALOG_CATEGORIES.map((category) => (
+            <Link
               key={category.slug}
-              href={`${CATALOG_PDF}#page=${category.page}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/catalogo/${category.slug}`}
               className="group relative aspect-[612/792] overflow-hidden rounded-lg shadow-sm block"
             >
               <Image
@@ -69,12 +52,12 @@ export default function Services() {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
         <p className="mt-6 text-sm text-gray-500">
-          Da clic en cualquier categoría para verla directo en el catálogo. También puedes{" "}
+          Da clic en cualquier categoría para verla dentro de la página. También puedes{" "}
           <a href={CATALOG_PDF} download className="text-brand font-semibold hover:underline">
             descargar el catálogo completo en PDF
           </a>

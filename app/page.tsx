@@ -6,10 +6,12 @@ import Services from "@/components/Services";
 import Segments from "@/components/Segments";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import WelcomeVideoModal from "@/components/WelcomeVideoModal";
 
 export default function Home() {
   return (
     <>
+      <WelcomeVideoModal />
       <Header />
       <main>
         <Hero />

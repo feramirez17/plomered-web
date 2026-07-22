@@ -3,21 +3,18 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+// TODO: reemplazar por logos reales de marca cuando Fernando los mande.
 const ALLY_BRANDS = [
   "Rotoplas",
-  "Urrea",
-  "Coflex",
-  "IUSA",
-  "Nacobre",
-  "Dica",
+  "AFER",
+  "Amanco",
+  "Cresco",
+  "Futura",
+  "PTM",
   "Rugo",
-  "Mueller",
   "Alfa",
-  "Oatey",
-  "Weld-On",
-  "Challenger",
-  "Aquex",
-  "Simex",
+  "Coflex",
+  "Tuboplus",
 ];
 
 type Slide =
