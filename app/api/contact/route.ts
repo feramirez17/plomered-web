@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
 
   const resend = new Resend(resendApiKey);
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "Plomered Web <onboarding@resend.dev>",
     to: toEmail,
     replyTo: email,
@@ -57,6 +57,11 @@ export async function POST(request: NextRequest) {
       message,
     ].join("\n"),
   });
+
+  if (error) {
+    console.error("Resend error:", error);
+    return NextResponse.json({ error: "No se pudo enviar el correo" }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }
