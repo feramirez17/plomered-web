@@ -122,7 +122,14 @@ export default function ContactForm() {
   }
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={siteKey}
+      container={{
+        element: "recaptcha-badge-container",
+        parameters: { badge: "bottomleft" },
+      }}
+    >
+      <div id="recaptcha-badge-container" />
       <ContactFormFields />
     </GoogleReCaptchaProvider>
   );
