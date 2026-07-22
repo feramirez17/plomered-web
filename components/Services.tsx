@@ -5,16 +5,16 @@ const CATALOG_PDF = "/catalogo/catalogo-plomered.pdf";
 const categories = [
   { slug: "tuberia", title: "Tubería", page: 7 },
   { slug: "conexiones", title: "Conexiones", page: 15 },
-  { slug: "valvulas", title: "Válvulas", page: 93 },
+  { slug: "valvulas", title: "Válvulas", page: 94 },
   { slug: "almacenamiento-agua", title: "Almacenamiento de agua", page: 105 },
   { slug: "bombas-hidroneumatico", title: "Bombas y equipo hidroneumático", page: 111 },
-  { slug: "pegamentos-soldaduras", title: "Pegamentos y soldaduras", page: 59 },
+  { slug: "pegamentos-soldaduras", title: "Pegamentos y soldaduras", page: 58 },
   { slug: "soporteria-fijacion", title: "Soportería y fijación", page: 114 },
   { slug: "residencial", title: "Residencial", page: 67 },
-  { slug: "urbanizacion", title: "Urbanización", page: 80 },
+  { slug: "urbanizacion", title: "Urbanización", page: 82 },
   { slug: "electrico", title: "Eléctrico", page: 124 },
   { slug: "temporada", title: "Temporada", page: 117 },
-  { slug: "otros-plomeria", title: "Otros plomería", page: 129 },
+  { slug: "otros-plomeria", title: "Otros plomería", page: 128 },
 ];
 
 export default function Services() {
