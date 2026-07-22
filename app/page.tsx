@@ -4,6 +4,7 @@ import About from "@/components/About";
 import QuickLinks from "@/components/QuickLinks";
 import Services from "@/components/Services";
 import Segments from "@/components/Segments";
+import Sucursales from "@/components/Sucursales";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WelcomeVideoModal from "@/components/WelcomeVideoModal";
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <Services />
         <Segments />
+        <Sucursales />
         <section id="contacto" className="bg-gray-50">
           <div className="mx-auto max-w-2xl px-6 py-20">
             <h2 className="text-3xl font-bold text-brand-dark mb-2 text-center">

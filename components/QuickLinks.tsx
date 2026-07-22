@@ -10,6 +10,7 @@ const shortcuts = [
   { label: "Quiénes somos", href: "#quienes-somos" },
   { label: "Catálogo", href: "/#que-ofrecemos" },
   { label: "Cobertura", href: "#cobertura" },
+  { label: "Sucursal", href: "#sucursales" },
   { label: "Contacto", href: "#contacto" },
 ];
 
