@@ -3,19 +3,18 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// TODO: reemplazar por logos reales de marca cuando Fernando los mande.
-const ALLY_BRANDS = [
-  "Rotoplas",
-  "AFER",
-  "Amanco",
-  "Cresco",
-  "Futura",
-  "PTM",
-  "Rugo",
-  "Alfa",
-  "Coflex",
-  "Tuboplus",
+const ALLY_LOGOS = [
+  { name: "Rotoplas", src: "/marcas/rotoplas.svg" },
+  { name: "AFER", src: "/marcas/afer.png" },
+  { name: "Cresco", src: "/marcas/cresco.png" },
+  { name: "Futura", src: "/marcas/futura.png" },
+  { name: "PTM", src: "/marcas/ptm.svg" },
+  { name: "Rugo", src: "/marcas/rugo.png" },
+  { name: "Coflex", src: "/marcas/coflex.png" },
 ];
+
+// TODO: falta logo de estas marcas — mándalos cuando los tengas.
+const ALLY_NO_LOGO = ["Amanco", "Alfa", "Tuboplus"];
 
 type Slide =
   | { type: "default" }
@@ -74,12 +73,28 @@ export default function HeroCarousel() {
           )}
 
           {slide.type === "brands" && (
-            <div className="absolute inset-0 bg-brand">
-              <p className="absolute bottom-6 left-6 right-6 text-white/50 text-xs md:text-sm">
-                <span className="text-brand-accent font-semibold uppercase tracking-widest">
-                  Nuestros aliados —{" "}
-                </span>
-                {ALLY_BRANDS.join(" · ")}
+            <div className="absolute inset-0 bg-brand flex flex-col items-center justify-center px-6">
+              <p className="text-brand-accent font-semibold uppercase tracking-widest text-xs mb-6">
+                Nuestros aliados
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 max-w-3xl">
+                {ALLY_LOGOS.map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="bg-white rounded-md px-5 py-3 flex items-center justify-center h-16 w-32"
+                  >
+                    <Image
+                      src={brand.src}
+                      alt={brand.name}
+                      width={100}
+                      height={40}
+                      className="max-h-9 w-auto object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-white/40 text-xs">
+                También: {ALLY_NO_LOGO.join(" · ")}
               </p>
             </div>
           )}
