@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={montserrat.variable}>
-      <body className="antialiased bg-white text-gray-900 font-sans">{children}</body>
+      <body className="antialiased bg-white text-gray-900 font-sans">
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }
