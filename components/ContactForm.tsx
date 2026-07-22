@@ -31,6 +31,7 @@ function ContactFormFields() {
       body: JSON.stringify({
         name: formData.get("name"),
         company: formData.get("company"),
+        customerType: formData.get("customerType"),
         phone: formData.get("phone"),
         email: formData.get("email"),
         message: formData.get("message"),
@@ -56,6 +57,26 @@ function ContactFormFields() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
+      <div>
+        <label htmlFor="customerType" className="block text-sm font-medium text-gray-700 mb-1">
+          Cuéntanos quién eres
+        </label>
+        <select
+          id="customerType"
+          name="customerType"
+          required
+          defaultValue=""
+          className="w-full rounded-md border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand"
+        >
+          <option value="" disabled>
+            Selecciona una opción
+          </option>
+          <option value="Constructora o contratista">Constructora o contratista</option>
+          <option value="Plomero profesional">Plomero profesional</option>
+          <option value="Consumidor final">Consumidor final</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
       <div className="grid sm:grid-cols-2 gap-4">
         <input
           name="name"

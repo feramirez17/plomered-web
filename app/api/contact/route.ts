@@ -19,9 +19,9 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { name, company, phone, email, message, recaptchaToken } = body;
+  const { name, company, customerType, phone, email, message, recaptchaToken } = body;
 
-  if (!name || !phone || !email || !message || !recaptchaToken) {
+  if (!name || !customerType || !phone || !email || !message || !recaptchaToken) {
     return NextResponse.json({ error: "Faltan campos requeridos" }, { status: 400 });
   }
 
@@ -46,8 +46,9 @@ export async function POST(request: NextRequest) {
     from: "Plomered Web <onboarding@resend.dev>",
     to: toEmail,
     replyTo: email,
-    subject: `Nueva solicitud de cotización — ${name}`,
+    subject: `Nueva solicitud de cotización — [${customerType}] ${name}`,
     text: [
+      `Tipo de cliente: ${customerType}`,
       `Nombre: ${name}`,
       `Empresa: ${company || "N/A"}`,
       `Teléfono: ${phone}`,
