@@ -1,10 +1,9 @@
 import MexicoMap from "./MexicoMap";
 
-// TODO: falta el número de WhatsApp para activar ese botón.
 const SOCIAL_LINKS = {
   Facebook: "https://www.facebook.com/plomeredcuu/",
   Instagram: "https://www.instagram.com/plomeredcuu/",
-  WhatsApp: "",
+  WhatsApp: "https://wa.me/526144733204?text=Hola%2C%20me%20interesa%20cotizar%20material.",
 };
 
 const shortcuts = [
