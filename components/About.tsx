@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const stats = [
   { value: "+20", label: "años en el mercado" },
   { value: "+7,000", label: "artículos de variedad" },
@@ -11,12 +13,21 @@ export default function About() {
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div>
           <h2 className="text-3xl font-bold text-brand-dark mb-4">Quiénes somos</h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed mb-6">
             Somos una comercializadora especializada en soluciones para la plomería,
             conducción y almacenamiento de líquidos y residuos. Nuestra infraestructura,
             especialización y acompañamiento nos hacen ser el mejor aliado para todos
             nuestros socios comerciales.
           </p>
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src="/quienes-somos/almacen.jpg"
+              alt="Bodega de Plomered con inventario en almacenamiento"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-6">
           {stats.map((stat) => (

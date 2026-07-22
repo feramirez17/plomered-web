@@ -30,8 +30,8 @@ const slides: Slide[] = [
   { type: "brands" },
   {
     type: "photo",
-    src: "/hero/obra-hidraulica.jpg",
-    caption: "Nuestros productos, en obra.",
+    src: "/hero/fuerza-almacenaje.jpg",
+    caption: "Fuerza de almacenaje.",
   },
   // TODO: agregar slide "toma aérea de nuestras instalaciones" cuando tengamos la foto.
 ];
