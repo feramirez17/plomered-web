@@ -1,15 +1,15 @@
 import MexicoMap from "./MexicoMap";
 
-// TODO: reemplazar con las URLs reales de las redes sociales de Plomered.
+// TODO: falta el número de WhatsApp para activar ese botón.
 const SOCIAL_LINKS = {
-  Facebook: "",
-  Instagram: "",
+  Facebook: "https://www.facebook.com/plomeredcuu/",
+  Instagram: "https://www.instagram.com/plomeredcuu/",
   WhatsApp: "",
 };
 
 const shortcuts = [
   { label: "Quiénes somos", href: "#quienes-somos" },
-  { label: "Catálogo", href: "/catalogo/catalogo-plomered.pdf" },
+  { label: "Catálogo", href: "/#que-ofrecemos" },
   { label: "Cobertura", href: "#cobertura" },
   { label: "Contacto", href: "#contacto" },
 ];
