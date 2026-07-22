@@ -19,39 +19,11 @@ const categories = [
 export default function Hero() {
   return (
     <section className="bg-brand text-white">
-      <div className="relative overflow-hidden">
-        <HeroCarousel />
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-16">
-          <p className="text-brand-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            La Red de Soluciones
-          </p>
-          <h1 className="uppercase text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
-            El material que tu obra necesita, cuando lo necesitas.
-          </h1>
-          <p className="mt-6 text-lg text-white/85 max-w-2xl">
-            Somos especialistas en <span className="font-semibold text-white">plomería, agua y drenaje</span>.{" "}
-            <span className="font-semibold text-white">Más que productos, ofrecemos soluciones.</span>
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#contacto"
-              className="rounded-md bg-brand-accent px-6 py-3 font-semibold text-white hover:brightness-90 transition"
-            >
-              Solicitar cotización
-            </a>
-            <a
-              href="#que-ofrecemos"
-              className="rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10 transition"
-            >
-              Ver catálogo
-            </a>
-          </div>
-        </div>
-      </div>
+      <HeroCarousel />
 
       <a
         href="#que-ofrecemos"
-        className="mt-16 md:mt-20 block border-t border-white/10 group"
+        className="block border-t border-white/10 group"
       >
         <div className="mx-auto max-w-6xl px-6 py-8 flex items-center gap-6 overflow-x-auto">
           <div className="flex items-center gap-8 shrink-0">

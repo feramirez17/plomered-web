@@ -6,33 +6,60 @@ import Image from "next/image";
 const ALLY_LOGOS = [
   { name: "Rotoplas", src: "/marcas/rotoplas.svg" },
   { name: "AFER", src: "/marcas/afer.png" },
+  { name: "IUSA", src: "/marcas/iusa.png" },
+  { name: "Amanco Wavin", src: "/marcas/amanco.png" },
   { name: "Cresco", src: "/marcas/cresco.png" },
   { name: "Futura", src: "/marcas/futura.png" },
   { name: "PTM", src: "/marcas/ptm.svg" },
   { name: "Rugo", src: "/marcas/rugo.png" },
+  { name: "Alfa", src: "/marcas/alfa.png" },
   { name: "Coflex", src: "/marcas/coflex.png" },
+  { name: "Tuboplus", src: "/marcas/tuboplus.png" },
 ];
 
-// TODO: falta logo de estas marcas — mándalos cuando los tengas.
-const ALLY_NO_LOGO = ["Amanco", "Alfa", "Tuboplus"];
+const CTAS = (
+  <div className="mt-10 flex flex-wrap gap-4">
+    <a
+      href="#contacto"
+      className="rounded-md bg-brand-accent px-6 py-3 font-semibold text-white hover:brightness-90 transition"
+    >
+      Solicitar cotización
+    </a>
+    <a
+      href="#que-ofrecemos"
+      className="rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10 transition"
+    >
+      Ver catálogo
+    </a>
+  </div>
+);
 
-type Slide =
-  | { type: "default" }
-  | { type: "brands" }
-  | { type: "photo"; src: string; caption: string };
+type Slide = {
+  eyebrow: string;
+  headline: string;
+  background: "color" | { photo: string };
+};
 
 const slides: Slide[] = [
-  { type: "default" },
-  { type: "brands" },
   {
-    type: "photo",
-    src: "/hero/fuerza-almacenaje.jpg",
-    caption: "Fuerza de almacenaje.",
+    eyebrow: "La Red de Soluciones",
+    headline: "El material que tu obra necesita, cuando lo necesitas.",
+    background: "color",
+  },
+  {
+    eyebrow: "Nuestra infraestructura",
+    headline: "Fuerza de almacenaje.",
+    background: { photo: "/hero/fuerza-almacenaje.jpg" },
+  },
+  {
+    eyebrow: "La Red de Soluciones",
+    headline: "Nuestros aliados.",
+    background: "color",
   },
   // TODO: agregar slide "toma aérea de nuestras instalaciones" cuando tengamos la foto.
 ];
 
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 7000;
 
 export default function HeroCarousel() {
   const [active, setActive] = useState(0);
@@ -45,63 +72,79 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="relative overflow-hidden min-h-[640px] md:min-h-[680px]">
       {slides.map((slide, i) => (
         <div
           key={i}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            i === active ? "opacity-100" : "opacity-0 pointer-events-none"
+            i === active ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         >
-          {slide.type === "default" && <div className="absolute inset-0 bg-brand" />}
-
-          {slide.type === "photo" && (
+          {slide.background === "color" && <div className="absolute inset-0 bg-brand" />}
+          {typeof slide.background === "object" && (
             <>
               <Image
-                src={slide.src}
-                alt={slide.caption}
+                src={slide.background.photo}
+                alt=""
                 fill
                 priority={i === 0}
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/60 to-brand/30" />
-              <p className="absolute bottom-6 right-6 text-white/70 text-xs font-semibold uppercase tracking-widest">
-                {slide.caption}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/70 to-brand/40" />
             </>
           )}
 
-          {slide.type === "brands" && (
-            <div className="absolute inset-0 bg-brand flex flex-col items-center justify-center px-6">
-              <p className="text-brand-accent font-semibold uppercase tracking-widest text-xs mb-6">
-                Nuestros aliados
+          <div className="relative z-10 mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-16 text-white">
+            <p className="text-brand-accent font-semibold tracking-widest uppercase text-sm mb-4">
+              {slide.eyebrow}
+            </p>
+            <h1 className="uppercase text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
+              {slide.headline}
+            </h1>
+
+            {i === 0 && (
+              <p className="mt-6 text-lg text-white/85 max-w-2xl">
+                Somos especialistas en{" "}
+                <span className="font-semibold text-white">plomería, agua y drenaje</span>.{" "}
+                <span className="font-semibold text-white">
+                  Más que productos, ofrecemos soluciones.
+                </span>
               </p>
-              <div className="flex flex-wrap justify-center gap-3 max-w-3xl">
+            )}
+
+            {i === 1 && (
+              <p className="mt-6 text-lg text-white/85 max-w-2xl">
+                Miles de metros cuadrados de inventario listos para surtir tu proyecto, sin
+                importar el tamaño.
+              </p>
+            )}
+
+            {i === 2 && (
+              <div className="mt-6 flex flex-wrap gap-3 max-w-3xl">
                 {ALLY_LOGOS.map((brand) => (
                   <div
                     key={brand.name}
-                    className="bg-white rounded-md px-5 py-3 flex items-center justify-center h-16 w-32"
+                    className="bg-white rounded-md px-4 py-2.5 flex items-center justify-center h-14 w-28"
                   >
                     <Image
                       src={brand.src}
                       alt={brand.name}
-                      width={100}
-                      height={40}
-                      className="max-h-9 w-auto object-contain"
+                      width={90}
+                      height={36}
+                      className="max-h-8 w-auto object-contain"
                     />
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-white/40 text-xs">
-                También: {ALLY_NO_LOGO.join(" · ")}
-              </p>
-            </div>
-          )}
+            )}
+
+            {CTAS}
+          </div>
         </div>
       ))}
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {slides.map((_, i) => (
           <button
             key={i}
