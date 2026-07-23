@@ -4,6 +4,7 @@ import About from "@/components/About";
 import QuickLinks from "@/components/QuickLinks";
 import Services from "@/components/Services";
 import Segments from "@/components/Segments";
+import Membresias from "@/components/Membresias";
 import Sucursales from "@/components/Sucursales";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <QuickLinks />
         <About />
+        <Membresias />
         <Services />
         <Segments />
         <Sucursales />
